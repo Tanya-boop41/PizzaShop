@@ -1,4 +1,3 @@
-
 function something()
 	{
 		var x = window.localStorage.getItem('bbb'); // x = hh['bbb']
