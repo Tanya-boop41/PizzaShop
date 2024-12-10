@@ -1,0 +1,21 @@
+<h2>All orders</h2>
+<table class="table table-striped">
+  <thead>
+  	<tr>
+      <th scope="col">Order</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+	<tr>
+    	<td><%= order.orders_input %></td>
+		<td><%= order.name %></td>
+		<td><%= order.phone %></td>
+    	<td><%= order.address %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>

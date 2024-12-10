@@ -9,7 +9,7 @@ set :database, {adapter: "sqlite3", database: "pizzashop.db"}
 class Product < ActiveRecord::Base
 end
 
-class Cart < ActiveRecord::Base
+class Order < ActiveRecord::Base
 end
 
 get '/' do
@@ -21,10 +21,15 @@ get '/about' do
 	erb :about
 end
 
+get '/cart' do
+	@orders = Order.all
+	erb :orders
+end
+
 post '/cart' do
 	#@products = Product.all
-	orders_input = params[:orders]
-	@items = parse_orders_input orders_input
+	@orders_input = params[:orders]
+	@items = parse_orders_input @orders_input
 
 	@items.each do |item|
 		 #id, cnt
@@ -54,3 +59,11 @@ def parse_orders_input orders
 	
 	return arr
 end
+
+post '/place_order' do
+	@o = Order.new params[:order]
+	@o.save
+
+	erb "Your order sucess!"
+end
+
