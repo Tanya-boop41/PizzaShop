@@ -26,9 +26,9 @@ post '/place_order' do
 	erb :order_placed
 end
 
-get '/cart' do
-	@orders = Order.all
-	erb :orders
+get '/admin' do
+	@orders = Order.all.order(created_at: :desc)
+	erb :admin
 end
 
 post '/cart' do
