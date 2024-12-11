@@ -65,3 +65,9 @@ function something()
 		}
 		return orders;
 	}
+
+	function cancel_order()
+	{
+		alert('aaa');
+		return false;
+	}
